@@ -1,0 +1,84 @@
+{
+  "prompts": {
+    "movie-script": [
+      "Write a movie script about a detective solving a mysterious case.",
+      "Compose a dialogue between two characters in a post-apocalyptic world."
+    ],
+    "recipe": [
+      "Provide a recipe for a delicious chocolate cake.",
+      "Share instructions for making a healthy salad."
+    ],
+    "short-story": [
+      "Develop a short story about a child who finds a magical artifact.",
+      "Write a short story based on the perspective of a pet."
+    ],
+    "speech": [
+      "Create a motivational speech for a team that's losing a game.",
+      "Draft a graduation speech that will inspire the new graduates."
+    ],
+    "biography": [
+      "Write a biography of a fictional character who became a famous scientist.",
+      "Develop a biography for a historical figure who never got the recognition they deserved."
+    ],
+    "song-lyrics": [
+      "Compose the lyrics for a love song set in the countryside.",
+      "Write the lyrics for an upbeat pop song about friendship."
+    ],
+    "poetry": [
+      "Create a poem that captures the beauty of a sunrise.",
+      "Write a haiku about the tranquility of a forest."
+    ],
+    "news-article": [
+      "Draft a news article about a major scientific breakthrough.",
+      "Write a news article reporting on a surprising sports victory."
+    ],
+    "book-review": [
+      "Review a science fiction book about a journey to a distant planet.",
+      "Provide a critique for a mystery novel with a twist ending."
+    ],
+    "tutorial": [
+      "Create a tutorial on how to use a popular software application.",
+      "Share a step-by-step guide on how to fix a common household issue."
+    ],
+    "travel-guide": [
+      "Compose a travel guide for a quaint coastal town.",
+      "Write a travel guide focusing on historical sites in Europe."
+    ],
+    "personal-letter": [
+      "Write a heartfelt letter from a soldier to their family back home.",
+      "Create a thank you letter to a teacher who made a difference."
+    ],
+    "resume": [
+      "Develop a resume for a character applying for a job as a chef.",
+      "Compose a resume for a character with experience in software development."
+    ],
+    "cover-letter": [
+      "Write a cover letter for a job application in the medical field.",
+      "Craft a cover letter for a job application in the field of marketing."
+    ],
+    "business-proposal": [
+      "Draft a business proposal for a new tech startup.",
+      "Create a business proposal for a sustainable fashion brand."
+    ],
+    "research-paper": [
+      "Write an abstract for a research paper on climate change.",
+      "Develop an abstract for a research paper on the impact of technology on education."
+    ],
+    "lesson-plan": [
+      "Create a lesson plan for a high school physics class.",
+      "Compose a lesson plan for a unit on Shakespeare's plays."
+    ],
+    "press-release": [
+      "Craft a press release for a company launching a new product.",
+      "Write a press release for a charity hosting a fundraising event."
+    ],
+    "interview": [
+      "Create a set of interview questions for a renowned author.",
+      "Write a set of interview questions for a leading tech entrepreneur."
+    ],
+    "product-description": [
+      "Write a product description for an innovative fitness device.",
+      "Draft a product description for a new line of vegan beauty products."
+    ]
+  }
+}
