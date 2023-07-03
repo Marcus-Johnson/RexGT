@@ -13,7 +13,7 @@ RexGT is a chat service that leverages OpenAI's ChatGPT to provide chat completi
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/rexgt.git`
+1. Clone the repository: `git clone https://github.com/Marcus-Johnson/rexgt.git`
 2. Install the dependencies: `npm install`
 3. Set up the environment: Create a `.env` file and provide the necessary environment variables, including `OPENAI_KEY`.
 4. Start the server: `npm start`
