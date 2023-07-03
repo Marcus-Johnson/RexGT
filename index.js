@@ -1,18 +1,22 @@
 require('dotenv').config();
 const express = require('express');
-const expressWinston = require('express-winston');
-const winston = require('winston');
 const cors = require('cors');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const path = require('path');
+const winston = require('winston');
+const expressWinston = require('express-winston');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
 const { getChatCompletion } = require('./controller/openaiController');
 const { messageSchema } = require('./utils/schema.joi');
-
-const app = express();
+const middlewares = require('./middleware/middlewares');
 
 const promptsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, './utils/data.json'), 'utf8'));
+
+middlewares.checkRequiredEnvironmentVariables();
+
+const app = express();
 
 app.use(cors());
 
@@ -25,20 +29,7 @@ app.use(rateLimit({
 
 app.use(express.json());
 
-app.use(expressWinston.logger({
-  transports: [
-    new winston.transports.Console()
-  ],
-  format: winston.format.combine(
-    winston.format.colorize(),
-    winston.format.json()
-  ),
-  meta: true,
-  msg: "HTTP {{req.method}} {{req.url}}",
-  expressFormat: true,
-  colorize: false,
-  ignoreRoute: function (req, res) { return false; }
-}));
+app.use(expressWinston.logger(middlewares.createWinstonOptions()));
 
 app.post('/api/chat/completion', async (req, res) => {
   const { error } = messageSchema.validate(req.body);

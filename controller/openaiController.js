@@ -22,7 +22,7 @@ async function getChatCompletion(message) {
 
     return response.data.choices[0].message.content;
   } catch (error) {
-    winston.error(error); 
+    winston.error(error);
     throw new Error('An error occurred while communicating with the OpenAI API');
   }
 }
