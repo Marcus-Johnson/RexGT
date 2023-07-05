@@ -1,13 +1,14 @@
 # RexGT: ChatGPT-powered Chat Service
 
-RexGT is a chat service that leverages OpenAI's ChatGPT to provide chat completions based on various prompts. It offers a backend API that allows users to interact with the language model and receive chat responses. The service is built with Node.js and Express, providing a scalable and efficient solution for chat-based applications.
+RexGT is a service boilerplate; utilizing OpenAI's ChatGPT to provide text completions and image generations based on user prompts. It offers a backend API allowing users to interact with the language model and receive text completions and generated images. The service is built using Node.js and Express, providing a scalable and efficient solution for AI-powered applications.
 
 ## Features
 
-- **Chat Completions**: Send prompts to the RexGT API and receive chat completions powered by OpenAI's ChatGPT.
-- **Prompt Categories**: RexGT supports multiple prompt categories, including movie scripts, recipes, short stories, speeches, biographies, song lyrics, poetry, news articles, book reviews, tutorials, travel guides, personal letters, resumes, cover letters, business proposals, research papers, lesson plans, press releases, interviews, and product descriptions.
-- **Flexible Configuration**: Customize the temperature and other parameters of the chat completions to fine-tune the output.
-- **Validation with Joi**: The API validates the request payloads using the Joi library to ensure the category parameter is valid.
+- **Text Completions**: Send text prompts utilizing catagories with the RexGT API and receive text completions powered by OpenAI's ChatGPT.
+- **Image Generations**: Send image prompts to the RexGT API and receive URLs of the generated images.
+- **Prompt Categories**: RexGT supports multiple prompt categories for text completions, including movie scripts, recipes, short stories, speeches, and more.
+- **Flexible Configuration**: Customize the temperature and other parameters of the text completions to fine-tune the output.
+- **Validation with Joi**: The API validates the request payloads using the Joi library to ensure data integrity.
 - **Error Handling**: Proper error handling is implemented to gracefully handle any errors that occur during communication with the OpenAI API or processing the requests.
 - **Testing with Chai**: The project includes automated tests using the Chai assertion library and Chai HTTP plugin to ensure the API functions correctly.
 
@@ -18,12 +19,25 @@ RexGT is a chat service that leverages OpenAI's ChatGPT to provide chat completi
 3. Set up the environment: Create a `.env` file and provide the necessary environment variables, including `OPENAI_KEY`.
 4. Start the server: `npm start`
 
-## Usage
+## Content Generation
 
-1. Make a POST request to `/api/chat/completion` with the following payload:
+To generate text, make a POST request to `/api/generate_text`. 
 
-```json
-{
+To generate an image, make a POST request to `/api/generate_image`. 
+
+For example, you can use `curls` on the command line as follows:
+
+```bash
+curl --location --request POST 'http://localhost:3000/api/generate_text' \
+--header 'Content-Type: application/json' \
+--data-raw '{
   "category": "movie-script"
-}
+}'
 
+curl --location --request POST 'http://localhost:3000/api/generate_image' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "prompt": "sunset over the ocean",
+  "n": 1,
+  "size": "512x512"
+}'
