@@ -30,9 +30,3 @@ jobs:
         OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
         PORT: ${{ secrets.PORT }}
         NODE_ENV: ${{ secrets.NODE_ENV }}
-    - name: Start application
-      run: npm start
-      env:
-        OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-        PORT: ${{ secrets.PORT }}
-        NODE_ENV: ${{ secrets.NODE_ENV }}
