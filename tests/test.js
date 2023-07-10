@@ -6,11 +6,11 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Chat API', () => {
-  it('should return a completion on /api/chat/completion POST', (done) => {
+  it('should return a completion on /api/generate_category_text POST', (done) => {
     const category = 'movie-script';
 
     chai.request(server)
-      .post('/api/generate_text')
+      .post('/api/generate_category_text')
       .send({ category })
       .end((err, res) => {
         res.should.have.status(200);
@@ -22,7 +22,7 @@ describe('Chat API', () => {
 
   it('should return an error when no category is sent', (done) => {
     chai.request(server)
-      .post('/api/generate_text')
+      .post('/api/generate_category_text')
       .send({})
       .end((err, res) => {
         res.should.have.status(400);
@@ -36,7 +36,7 @@ describe('Chat API', () => {
     const category = 'invalid-category';
 
     chai.request(server)
-      .post('/api/generate_text')
+      .post('/api/generate_category_text')
       .send({ category })
       .end((err, res) => {
         res.should.have.status(400);
@@ -48,7 +48,7 @@ describe('Chat API', () => {
 });
 
 describe('Image API', () => {
-  it('should return an image URL on /api/image/generate POST', (done) => {
+  it('should return an image URL on /api/image/generate_prompt_image POST', (done) => {
     const payload = {
       prompt: 'sunset over the ocean',
       n: 1,
@@ -56,7 +56,7 @@ describe('Image API', () => {
     };
 
     chai.request(server)
-      .post('/api/generate_image')
+      .post('/api/generate_prompt_image')
       .send(payload)
       .end((err, res) => {
         res.should.have.status(200);
@@ -68,7 +68,7 @@ describe('Image API', () => {
 
   it('should return an error when no data is sent', (done) => {
     chai.request(server)
-      .post('/api/generate_image')
+      .post('/api/generate_prompt_image')
       .send({})
       .end((err, res) => {
         res.should.have.status(400);
@@ -85,7 +85,7 @@ describe('Image API', () => {
     };
 
     chai.request(server)
-      .post('/api/generate_image')
+      .post('/api/generate_prompt_image')
       .send(payload)
       .end((err, res) => {
         res.should.have.status(400);
@@ -103,7 +103,7 @@ describe('Image API', () => {
     };
 
     chai.request(server)
-      .post('/api/generate_image')
+      .post('/api/generate_prompt_image')
       .send(payload)
       .end((err, res) => {
         res.should.have.status(400);
@@ -121,7 +121,7 @@ describe('Image API', () => {
     };
 
     chai.request(server)
-      .post('/api/generate_image')
+      .post('/api/generate_prompt_image')
       .send(payload)
       .end((err, res) => {
         res.should.have.status(400);

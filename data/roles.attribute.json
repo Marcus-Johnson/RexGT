@@ -1,0 +1,15 @@
+{
+    "starter_prompts_including_roles": ["Doctor", "Scientist", "Engineer", "Artist", "Chef", "Musician", "Historian", "Writer", "Athlete", "Psychologist", 
+    "Architect", "Astronaut", "Dancer", "Designer", "Gardener", "Librarian", "Mechanic", "Nurse", "Photographer", "Police Officer", 
+    "Pilot", "Veterinarian", "Journalist", "Lawyer", "Philosopher", "Translator", "Travel Agent", "Real Estate Agent", "Politician", 
+    "Programmer", "Economist", "Biologist", "Physicist", "Mathematician", "Anthropologist", "Sociologist", "Archaeologist", 
+    "Astronomer", "Geologist", "Meteorologist", "Marine Biologist", "Zoologist", "Geneticist", "Pharmacist", "Surgeon", "Dietitian", 
+    "Physiotherapist", "Psychiatrist", "Dentist", "Anesthesiologist", "Cardiologist", "Dermatologist", "Endocrinologist", "Immunologist", 
+    "Neurologist", "Oncologist", "Pediatrician", "Rheumatologist", "Radiologist", "General Practitioner", "Novelist", "Poet", "Playwright", 
+    "Screenwriter", "Biographer", "Columnist", "Critic", "Editor", "Lyricist", "Speechwriter", "Blogger", "Ghostwriter", "Freelance Writer", 
+    "Copywriter", "Report Writer", "Technical Writer", "Web Writer", "Interpreter", "Content Writer", "Songwriter", "Fiction Writer", 
+    "Nonfiction Writer", "Academic Writer", "Business Writer", "Comic Writer", "Crime Writer", "Ebook Writer", "Essay Writer", "Grant Writer", 
+    "Medical Writer", "Memoir Writer", "News Writer", "Travel Writer", "Video Game Writer", "Screenplay Writer", "TV Writer", 
+    "Storyboard Writer", "Script Writer", "Magazine Writer", "Newspaper Writer", "Book Writer", "Article Writer", "Music Writer", "Radio Writer", 
+    "Speech Writer", "Sports Writer", "Theater Writer", "TV Show Writer", "Poetry Writer", "Short Story Writer", "Children's Book Writer"]
+}
