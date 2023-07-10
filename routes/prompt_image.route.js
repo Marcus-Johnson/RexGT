@@ -4,7 +4,7 @@ const { imageSchema } = require('../utils/image-schema.joi');
 const imageController = require('../controllers/image.controller');
 const winston = require('winston');
 
-router.post("/generate_image", async (req, res) => {
+router.post("/generate_prompt_image", async (req, res) => {
     const { error } = imageSchema.validate(req.body);
     if (error) {
       return res.status(400).json({ error: error.details[0].message });

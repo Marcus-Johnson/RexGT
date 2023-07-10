@@ -7,8 +7,8 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const middlewares = require("./middleware/middlewares");
 
-const chatRoutes = require('./routes/chat.route');
-const imageRoutes = require('./routes/image.route');
+const chatRoutes = require('./routes/category_chat.route');
+const imageRoutes = require('./routes/prompt_image.route');
 
 middlewares.checkRequiredEnvironmentVariables();
 

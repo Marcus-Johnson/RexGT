@@ -7,7 +7,7 @@ const path = require('path');
 const winston = require('winston');
 const promptsData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/message.prompts.json'), 'utf8'));
 
-router.post("/generate_text", async (req, res) => {
+router.post("/generate_category_text", async (req, res) => {
     const { error } = messageSchema.validate(req.body);
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
