@@ -21,20 +21,20 @@ RexGT is a service boilerplate; utilizing OpenAI's ChatGPT to provide text compl
 
 ## Content Generation
 
-To generate text, make a POST request to `/api/generate_text`. 
+To generate text, make a POST request to `/api/generate_category_text`. 
 
-To generate an image, make a POST request to `/api/generate_image`. 
+To generate an image, make a POST request to `/api/generate_prompt_image`. 
 
 For example, you can use `curls` on the command line as follows:
 
 ```bash
-curl --location --request POST 'http://localhost:3000/api/generate_text' \
+curl --location --request POST 'http://localhost:3000/api/generate_category_text' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "category": "movie-script"
 }'
 
-curl --location --request POST 'http://localhost:3000/api/generate_image' \
+curl --location --request POST 'http://localhost:3000/api/generate_prompt_image' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "prompt": "sunset over the ocean",
