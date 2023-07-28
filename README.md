@@ -4,7 +4,7 @@ RexGT is a service boilerplate; utilizing OpenAI's ChatGPT to provide text compl
 
 ## Features
 
-- **Text Completions**: Send text prompts utilizing catagories with the RexGT API and receive text completions powered by OpenAI's ChatGPT.
+- **Text Completions**: Send text prompts utilizing categories with the RexGT API and receive text completions powered by OpenAI's ChatGPT.
 - **Image Generations**: Send image prompts to the RexGT API and receive URLs of the generated images.
 - **Prompt Categories**: RexGT supports multiple prompt categories for text completions, including movie scripts, recipes, short stories, speeches, and more.
 - **Flexible Configuration**: Customize the temperature and other parameters of the text completions to fine-tune the output.
@@ -21,9 +21,9 @@ RexGT is a service boilerplate; utilizing OpenAI's ChatGPT to provide text compl
 
 ## Content Generation
 
-To generate text, make a POST request to `/api/generate_text`. 
+To generate text, make a POST request to `/api/generate_category_text`. 
 
-To generate an image, make a POST request to `/api/generate_image`. 
+To generate an image, make a POST request to `/api/generate_prompt_image`. 
 
 For example, you can use `curls` on the command line as follows:
 
