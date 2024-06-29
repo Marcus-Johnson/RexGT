@@ -1,29 +1,32 @@
 {
-  "name": "rexgt",
+  "name": "rex",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha ./tests/test.js"
+    "test": "node ./tests/test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
+    "axios": "^1.7.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-rate-limit": "^6.7.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
     "express-winston": "^4.2.0",
-    "helmet": "^7.0.0",
-    "joi": "^17.9.2",
-    "openai": "^3.3.0",
-    "winston": "^3.9.0"
+    "helmet": "^7.1.0",
+    "joi": "^17.13.3",
+    "nock": "^13.5.4",
+    "openai": "^4.52.1",
+    "play-sound": "^1.1.6",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
-    "chai-http": "^4.4.0",
-    "mocha": "^10.2.0"
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "mocha": "^10.5.2"
   }
 }
