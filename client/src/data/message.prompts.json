@@ -1,0 +1,340 @@
+{
+  "prompts": {
+    "movie-script": [
+      "Write a movie script about a heist gone wrong.",
+      "Compose a dialogue between two spies meeting in secret.",
+      "Develop a scene where a superhero confronts their arch-nemesis.",
+      "Create a script for a romantic comedy set in a small town.",
+      "Draft a script for a horror film set in an abandoned mansion."
+    ],
+    "recipe": [
+      "Provide a recipe for a classic Italian lasagna.",
+      "Share instructions for making a refreshing summer smoothie.",
+      "Create a recipe for a vegan version of a popular dish.",
+      "Draft a recipe for a traditional holiday dessert.",
+      "Compose a recipe for a hearty winter soup."
+    ],
+    "short-story": [
+      "Develop a short story about a time traveler stuck in the past.",
+      "Write a short story from the perspective of a ghost.",
+      "Compose a story about a group of friends discovering a hidden treasure.",
+      "Create a short story about an AI gaining consciousness.",
+      "Draft a short story about a magical forest."
+    ],
+    "speech": [
+      "Write an acceptance speech for an award in the arts.",
+      "Create a speech for a CEO addressing their company after a successful year.",
+      "Draft a speech for a political candidate on the campaign trail.",
+      "Compose a speech for a parent at their child's wedding.",
+      "Develop a speech for a high school reunion."
+    ],
+    "biography": [
+      "Write a biography of a fictional explorer who discovered a lost civilization.",
+      "Develop a biography for a musician who changed the course of history.",
+      "Create a biography of a fictional character who survived a major disaster.",
+      "Write a biography for an inventor who never received credit for their work.",
+      "Draft a biography for a fictional astronaut who journeyed to Mars."
+    ],
+    "song-lyrics": [
+      "Compose the lyrics for a ballad about lost love.",
+      "Write the lyrics for a rock song about rebellion.",
+      "Create a song about the excitement of travel and adventure.",
+      "Draft lyrics for a soulful song about overcoming challenges.",
+      "Write the lyrics for a folk song about nature."
+    ],
+    "poetry": [
+      "Create a poem that reflects the changing seasons.",
+      "Write a sonnet about the feeling of first love.",
+      "Compose a free verse poem about the chaos of city life.",
+      "Draft a limerick about a quirky character.",
+      "Write a haiku about the tranquility of the ocean."
+    ],
+    "news-article": [
+      "Draft a news article about a groundbreaking medical discovery.",
+      "Write a news article covering a political scandal.",
+      "Create an article about a community coming together after a natural disaster.",
+      "Draft a piece about a major cultural event in a big city.",
+      "Write an article about a new technology changing everyday life."
+    ],
+    "book-review": [
+      "Review a fantasy novel about a world in turmoil.",
+      "Provide a critique for a historical fiction book set in ancient Rome.",
+      "Write a review for a thriller involving a high-stakes conspiracy.",
+      "Draft a review for a memoir about overcoming personal struggles.",
+      "Review a science fiction book about a dystopian future."
+    ],
+    "tutorial": [
+      "Create a tutorial on how to build a simple website from scratch.",
+      "Share a step-by-step guide on organizing a home office.",
+      "Develop a tutorial for beginners learning to play the guitar.",
+      "Write a guide on how to start a garden in small spaces.",
+      "Create a tutorial on basic photography techniques."
+    ],
+    "travel-guide": [
+      "Compose a travel guide for a bustling metropolitan city.",
+      "Write a travel guide focusing on the natural wonders of South America.",
+      "Create a guide for backpacking through Southeast Asia.",
+      "Draft a travel guide for a luxury vacation in the Caribbean.",
+      "Write a travel guide for exploring the historical sites of Europe."
+    ],
+    "personal-letter": [
+      "Write a letter from a parent to their child going off to college.",
+      "Create a love letter from one character to another during wartime.",
+      "Draft a letter of apology from a friend seeking forgiveness.",
+      "Compose a letter of congratulations for a friend’s major achievement.",
+      "Write a heartfelt letter from a grandparent to their grandchild."
+    ],
+    "resume": [
+      "Develop a resume for a character applying for a job in journalism.",
+      "Compose a resume for a character with experience in event planning.",
+      "Create a resume for a character seeking a position in environmental science.",
+      "Draft a resume for a character with skills in graphic design.",
+      "Write a resume for a character applying for a job in education."
+    ],
+    "cover-letter": [
+      "Write a cover letter for a job application in the finance industry.",
+      "Craft a cover letter for a teaching position at a prestigious school.",
+      "Create a cover letter for a job application in the field of architecture.",
+      "Draft a cover letter for a job in the hospitality industry.",
+      "Write a cover letter for a position in nonprofit management."
+    ],
+    "business-proposal": [
+      "Draft a business proposal for a new mobile app.",
+      "Create a business proposal for a farm-to-table restaurant.",
+      "Write a proposal for an eco-friendly product line.",
+      "Develop a business proposal for a community-based fitness center.",
+      "Compose a business proposal for an online education platform."
+    ],
+    "research-paper": [
+      "Write an abstract for a research paper on renewable energy sources.",
+      "Develop an abstract for a research paper on the effects of social media on mental health.",
+      "Create an abstract for a study on urban planning and sustainable cities.",
+      "Draft an abstract for a paper on genetic engineering in agriculture.",
+      "Write an abstract for a research paper on artificial intelligence in healthcare."
+    ],
+    "lesson-plan": [
+      "Create a lesson plan for an elementary school science class.",
+      "Compose a lesson plan for a unit on modern American history.",
+      "Develop a lesson plan for teaching creative writing to high school students.",
+      "Write a lesson plan for a workshop on digital literacy.",
+      "Create a lesson plan for a middle school art class."
+    ],
+    "press-release": [
+      "Craft a press release for a nonprofit organization starting a new initiative.",
+      "Write a press release for a film festival announcing its lineup.",
+      "Create a press release for a tech company releasing a new gadget.",
+      "Draft a press release for a local government announcing a new policy.",
+      "Write a press release for a new book launch."
+    ],
+    "interview": [
+      "Create a set of interview questions for a famous athlete.",
+      "Write a set of interview questions for a celebrated chef.",
+      "Develop questions for interviewing a leading scientist in their field.",
+      "Compose interview questions for a popular social media influencer.",
+      "Draft interview questions for an actor promoting their latest film."
+    ],
+    "product-description": [
+      "Write a product description for a state-of-the-art kitchen appliance.",
+      "Draft a product description for a new smartphone with cutting-edge features.",
+      "Create a product description for an outdoor adventure kit.",
+      "Compose a product description for a line of organic skincare products.",
+      "Write a product description for a high-tech fitness tracker."
+    ],
+    "memoir": [
+      "Write a memoir about a childhood spent in a small village.",
+      "Draft a memoir about a life-changing travel experience.",
+      "Compose a memoir about overcoming personal challenges.",
+      "Create a memoir about a career in the arts.",
+      "Write a memoir about a significant relationship."
+    ],
+    "fantasy-story": [
+      "Develop a fantasy story about a hidden magical kingdom.",
+      "Write a fantasy story about a hero's quest to find a lost artifact.",
+      "Compose a fantasy story about a world where dragons rule.",
+      "Create a fantasy story about a young sorcerer discovering their powers.",
+      "Draft a fantasy story about a rebellion against an evil emperor."
+    ],
+    "science-fiction": [
+      "Write a science fiction story set on a distant planet.",
+      "Create a science fiction story about a dystopian future.",
+      "Compose a science fiction story about time travel.",
+      "Draft a science fiction story about an alien invasion.",
+      "Write a science fiction story about a society where robots have taken over."
+    ],
+    "historical-fiction": [
+      "Write a historical fiction story set during the Renaissance.",
+      "Create a historical fiction story about a soldier in World War II.",
+      "Compose a historical fiction story set in ancient Egypt.",
+      "Draft a historical fiction story about the American Revolution.",
+      "Write a historical fiction story about the court of a medieval king."
+    ],
+    "mythology": [
+      "Write a modern retelling of a classic Greek myth.",
+      "Create a story based on Norse mythology.",
+      "Compose a story about a new mythological creature.",
+      "Draft a story about the gods of an ancient civilization.",
+      "Write a story set in the world of Celtic mythology."
+    ],
+    "mystery": [
+      "Write a mystery story about a detective solving a murder.",
+      "Create a mystery story about a missing person.",
+      "Compose a mystery story about a stolen artifact.",
+      "Draft a mystery story set in a small town with dark secrets.",
+      "Write a mystery story about an unsolved crime from the past."
+    ],
+    "thriller": [
+      "Write a thriller about a high-stakes heist.",
+      "Create a thriller about a political conspiracy.",
+      "Compose a thriller about a cat-and-mouse chase between a cop and a criminal.",
+      "Draft a thriller about a survivor in a post-apocalyptic world.",
+      "Write a thriller about a journalist uncovering a dangerous secret."
+    ],
+    "romance": [
+      "Write a romance story about two people meeting on a vacation.",
+      "Create a romance story about childhood sweethearts reuniting.",
+      "Compose a romance story set in a historical period.",
+      "Draft a romance story about love in the workplace.",
+      "Write a romance story about a long-distance relationship."
+    ],
+    "comedy": [
+      "Write a comedy story about a series of unfortunate events.",
+      "Create a comedy story about a family reunion gone wrong.",
+      "Compose a comedy story set in an office.",
+      "Draft a comedy story about a road trip.",
+      "Write a comedy story about a quirky small town."
+    ],
+    "adventure": [
+      "Write an adventure story about a treasure hunt.",
+      "Create an adventure story about an expedition to a remote location.",
+      "Compose an adventure story about surviving in the wilderness.",
+      "Draft an adventure story set in a fantasy world.",
+      "Write an adventure story about exploring a mysterious island."
+    ],
+    "horror": [
+      "Write a horror story about a haunted house.",
+      "Create a horror story about a monster in a small town.",
+      "Compose a horror story about a cursed object.",
+      "Draft a horror story set in an abandoned asylum.",
+      "Write a horror story about a group of friends encountering something terrifying in the woods."
+    ],
+    "children's-story": [
+      "Write a children's story about a talking animal.",
+      "Create a children's story about a magical adventure.",
+      "Compose a children's story about a day at the zoo.",
+      "Draft a children's story about friendship and teamwork.",
+      "Write a children's story about a young hero saving the day."
+    ],
+    "fairy-tale": [
+      "Write a fairy tale about a princess who saves the kingdom.",
+      "Create a fairy tale about a magical forest.",
+      "Compose a fairy tale about a talking animal helping a hero.",
+      "Draft a fairy tale about a curse that needs to be broken.",
+      "Write a fairy tale about a journey to a faraway land."
+    ],
+    "dystopian": [
+      "Write a dystopian story about a society controlled by technology.",
+      "Create a dystopian story about a world without freedom.",
+      "Compose a dystopian story about a group of rebels fighting the system.",
+      "Draft a dystopian story about a world with extreme social inequalities.",
+      "Write a dystopian story about a future where resources are scarce."
+    ],
+    "script-for-play": [
+      "Write a script for a play about a family dealing with a secret.",
+      "Create a script for a play set in a historical period.",
+      "Compose a script for a play about a friendship tested by circumstances.",
+      "Draft a script for a play about a courtroom drama.",
+      "Write a script for a play about love and betrayal."
+    ],
+    "screenplay": [
+      "Write a screenplay for a sci-fi movie about a space mission.",
+      "Create a screenplay for a drama about personal redemption.",
+      "Compose a screenplay for a comedy about a mismatched couple.",
+      "Draft a screenplay for a horror movie about a haunted hotel.",
+      "Write a screenplay for an action movie about an undercover agent."
+    ],
+    "satire": [
+      "Write a satire about the modern obsession with social media.",
+      "Create a satire about corporate culture.",
+      "Compose a satire about political campaigns.",
+      "Draft a satire about reality TV shows.",
+      "Write a satire about the fashion industry."
+    ],
+    "essay": [
+      "Write an essay about the impact of technology on society.",
+      "Create an essay about the importance of education.",
+      "Compose an essay about the effects of climate change.",
+      "Draft an essay about the role of art in culture.",
+      "Write an essay about the significance of historical events."
+    ],
+    "blog-post": [
+      "Write a blog post about travel tips for budget travelers.",
+      "Create a blog post about healthy eating habits.",
+      "Compose a blog post about personal productivity strategies.",
+      "Draft a blog post about home improvement ideas.",
+      "Write a blog post about starting a small business."
+    ],
+    "podcast-script": [
+      "Write a podcast script about the history of a famous city.",
+      "Create a podcast script about interviewing an expert in a field.",
+      "Compose a podcast script about a true crime story.",
+      "Draft a podcast script about exploring different cultures.",
+      "Write a podcast script about personal finance advice."
+    ],
+    "comic-strip": [
+      "Write a comic strip about a superhero with an unusual power.",
+      "Create a comic strip about a day in the life of a cat.",
+      "Compose a comic strip about a humorous family scenario.",
+      "Draft a comic strip about a space adventure.",
+      "Write a comic strip about a group of friends in high school."
+    ],
+    "advertisement": [
+      "Write an advertisement for a new fitness app.",
+      "Create an advertisement for a luxury car.",
+      "Compose an advertisement for a summer sale at a clothing store.",
+      "Draft an advertisement for a travel agency.",
+      "Write an advertisement for a new book release."
+    ],
+    "social-media-post": [
+      "Write a social media post about a new product launch.",
+      "Create a social media post about an upcoming event.",
+      "Compose a social media post about a special discount offer.",
+      "Draft a social media post about a community service project.",
+      "Write a social media post about celebrating a milestone."
+    ],
+    "marketing-email": [
+      "Write a marketing email about a holiday sale.",
+      "Create a marketing email about a new product release.",
+      "Compose a marketing email about a special membership offer.",
+      "Draft a marketing email about an upcoming webinar.",
+      "Write a marketing email about customer testimonials."
+    ],
+    "user-manual": [
+      "Write a user manual for a new software application.",
+      "Create a user manual for a kitchen appliance.",
+      "Compose a user manual for a fitness device.",
+      "Draft a user manual for a smart home system.",
+      "Write a user manual for a DIY project kit."
+    ],
+    "journal-entry": [
+      "Write a journal entry about a memorable day.",
+      "Create a journal entry about overcoming a challenge.",
+      "Compose a journal entry about a travel experience.",
+      "Draft a journal entry about a personal achievement.",
+      "Write a journal entry about a significant relationship."
+    ],
+    "opinion-piece": [
+      "Write an opinion piece about the importance of voting.",
+      "Create an opinion piece about the benefits of a healthy lifestyle.",
+      "Compose an opinion piece about the impact of social media on youth.",
+      "Draft an opinion piece about the need for environmental conservation.",
+      "Write an opinion piece about the future of technology."
+    ],
+    "report": [
+      "Write a report on the state of global education.",
+      "Create a report on the impact of climate change on coastal areas.",
+      "Compose a report on the advancements in renewable energy.",
+      "Draft a report on the trends in the tech industry.",
+      "Write a report on the social effects of urbanization."
+    ]
+  }
+}

@@ -10,6 +10,46 @@
 - Validation with Joi: The API validates the request payloads using the Joi library to ensure data integrity.
 - Error Handling: Proper error handling is implemented to gracefully handle any errors that occur during communication with the OpenAI API or processing the requests.
 
+## How RexGT Works
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    participant ChatController
+    participant ImageController
+    participant CategoryChatController
+    participant TTSController
+    participant OpenAIAPI
+
+    Client->>Server: POST /api/chat
+    Server->>ChatController: getChatCompletion(req, res)
+    ChatController->>OpenAIAPI: openai.chat.completions.create({ model, messages })
+    OpenAIAPI-->>ChatController: Completion Response
+    ChatController-->>Server: Response
+    Server-->>Client: Chat Completion
+
+    Client->>Server: POST /api/image
+    Server->>ImageController: generateImage(req, res)
+    ImageController->>OpenAIAPI: openai.images.generate({ model, prompt, n, size })
+    OpenAIAPI-->>ImageController: Image Response
+    ImageController-->>Server: Response
+    Server-->>Client: Generated Image URL
+
+    Client->>Server: POST /api/category_chat
+    Server->>CategoryChatController: getCategoryChatCompletion(req, res)
+    CategoryChatController->>OpenAIAPI: openai.chat.completions.create({ model, messages })
+    OpenAIAPI-->>CategoryChatController: Completion Response
+    CategoryChatController-->>Server: Response
+    Server-->>Client: Category Chat Completion
+
+    Client->>Server: POST /api/speech
+    Server->>TTSController: generateSpeech(req, res)
+    TTSController->>OpenAIAPI: openai.audio.speech.create({ model, voice, input })
+    OpenAIAPI-->>TTSController: Speech MP3 Response
+    TTSController-->>Server: Speech File Response
+    Server-->>Client: Speech File URL
+```
+
 > RexGT is a service boilerplate that utilizes OpenAI's ChatGPT to provide text completions, image generations, and speech synthesis based on user prompts.
 
 ```sh
