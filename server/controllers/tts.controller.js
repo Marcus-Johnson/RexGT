@@ -7,10 +7,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const speechFile = path.resolve('./speech.mp3');
-
 const generateSpeech = (req, res) => {
-  const { text } = req.body;
+  const { text, voice } = req.body;
 
   const { error } = speechSchema.validate({ text });
   if (error) {
@@ -21,17 +19,17 @@ const generateSpeech = (req, res) => {
     openai.audio.speech
       .create({
         model: 'tts-1',
-        voice: 'alloy',
+        voice: voice || 'alloy',
         input: text,
       })
       .then(async (mp3) => {
         try {
-          console.log(speechFile);
           const buffer = Buffer.from(await mp3.arrayBuffer());
-          await fs.promises.writeFile(speechFile, buffer);
+          const filePath = path.resolve(`./public/speech-${Date.now()}.mp3`);
+          await fs.promises.writeFile(filePath, buffer);
           res.json({
             message: 'Speech generated successfully',
-            file: speechFile,
+            file: `/public${filePath.split('public')[1]}`,
           });
           resolve();
         } catch (writeError) {

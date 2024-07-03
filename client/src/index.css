@@ -104,8 +104,8 @@ button:hover {
 }
 
 .loading-indicator .dot {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
   margin: 0 4px;
   background: #007bff;
   border-radius: 50%;

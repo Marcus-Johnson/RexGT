@@ -4,11 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import roles from '../data/roles.attribute.json';
 import prompts from '../data/message.prompts.json';
 
+const voices = ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'];
+
 const Chat = () => {
   const [prompt, setPrompt] = useState('');
   const [selectedModel, setSelectedModel] = useState('chat');
   const [selectedRole, setSelectedRole] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedVoice, setSelectedVoice] = useState(voices[0]);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
@@ -49,6 +52,11 @@ const Chat = () => {
         role: 'user',
         content: `Category chat: ${selectedRole}, ${selectedCategory} sent.`,
       };
+    } else if (selectedModel === 'tts') {
+      userMessage = {
+        role: 'user',
+        content: `TTS: Voice ${selectedVoice}, Text "${prompt}" sent.`,
+      };
     }
 
     setMessages([...messages, userMessage]);
@@ -59,10 +67,13 @@ const Chat = () => {
       chat: '/api/chat',
       image: '/api/image',
       category_chat: '/api/category_chat',
+      tts: '/api/speech',
     };
 
     const requestBody = selectedModel === 'category_chat'
       ? { role: selectedRole, category: selectedCategory }
+      : selectedModel === 'tts'
+      ? { text: prompt, voice: selectedVoice }
       : { prompt };
 
     fetch(`http://localhost:3000${endpointMap[selectedModel]}`, {
@@ -75,11 +86,13 @@ const Chat = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log('API Response:', data);
-        const newResponse = data.choices
+        const newResponse = data.file
+          ? `/public${data.file}` 
+          : data.choices
           ? data.choices[0].message.content
           : data.message
           ? data.message.content
-          : data.url || data.file || '';
+          : data.url || '';
         setMessages((prevMessages) => [
           ...prevMessages,
           { role: 'ai', content: newResponse },
@@ -102,7 +115,7 @@ const Chat = () => {
   };
 
   const selectMessage = (index) => {
-    chatContainerRef.current.scrollTop = index * 100; // Scroll to selected message
+    chatContainerRef.current.scrollTop = index * 100; 
   };
 
   return (
@@ -120,6 +133,11 @@ const Chat = () => {
               {msg.role === 'ai' ? (
                 isImageUrl(msg.content) ? (
                   <img src={msg.content} alt="Generated content" className="generated-image" />
+                ) : msg.content.endsWith('.mp3') ? (
+                  <audio controls>
+                    <source src={msg.content} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
                 ) : (
                   <ReactMarkdown>{msg.content}</ReactMarkdown>
                 )
@@ -154,6 +172,25 @@ const Chat = () => {
                   ))}
                 </select>
               </>
+            ) : selectedModel === 'tts' ? (
+              <>
+                <select
+                  value={selectedVoice}
+                  onChange={(e) => setSelectedVoice(e.target.value)}
+                  className="border border-gray-300 rounded-l-lg p-2 bg-white flex-1 mr-2"
+                >
+                  {voices.map((voice, index) => (
+                    <option key={index} value={voice}>{voice}</option>
+                  ))}
+                </select>
+                <input
+                  type="text"
+                  value={prompt}
+                  onChange={(e) => setPrompt(e.target.value)}
+                  placeholder="Type what you want the voice to say..."
+                  className="flex-1 p-2 border border-gray-300 rounded-r-lg"
+                />
+              </>
             ) : (
               <input
                 type="text"
@@ -171,13 +208,14 @@ const Chat = () => {
               <option value="chat">Chat</option>
               <option value="image">Image Generator</option>
               <option value="category_chat">Category Chat</option>
+              {/* <option value="tts">Text-to-Speech</option> */}
             </select>
             <button type="submit" className="ml-4 p-2 bg-blue-500 text-white rounded-lg">
               Send
             </button>
           </div>
           {loading && (
-            <div className="loading-indicator absolute bottom-15 left-4">
+            <div className="loading-indicator absolute bottom-16 left-4">
               <div className="dot"></div>
               <div className="dot"></div>
               <div className="dot"></div>
