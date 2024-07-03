@@ -47,8 +47,8 @@ header {
 .chat-container .message {
   margin-bottom: 1rem;
   max-width: 600px;
-  min-width: 150px; /* Ensure the message box doesn't stretch unnecessarily */
-  word-break: break-word; /* Ensure long messages wrap correctly */
+  min-width: 150px;
+  word-break: break-word; 
 }
 
 .chat-container .user-message {
@@ -106,7 +106,7 @@ button:hover {
 .loading-indicator .dot {
   width: 8px;
   height: 8px;
-  margin: 0 2px;
+  margin: 0 4px;
   background: #007bff;
   border-radius: 50%;
   animation: loading 0.6s infinite alternate;

@@ -42,7 +42,15 @@ const Chat = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userMessage = { role: 'user', content: prompt };
+    let userMessage = { role: 'user', content: prompt };
+
+    if (selectedModel === 'category_chat') {
+      userMessage = {
+        role: 'user',
+        content: `Category chat: ${selectedRole}, ${selectedCategory} sent.`,
+      };
+    }
+
     setMessages([...messages, userMessage]);
     setLoading(true);
     setPrompt('');
@@ -169,7 +177,7 @@ const Chat = () => {
             </button>
           </div>
           {loading && (
-            <div className="loading-indicator absolute bottom-16 left-4">
+            <div className="loading-indicator absolute bottom-15 left-4">
               <div className="dot"></div>
               <div className="dot"></div>
               <div className="dot"></div>

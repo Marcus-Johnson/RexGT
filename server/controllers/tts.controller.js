@@ -21,7 +21,7 @@ const generateSpeech = (req, res) => {
     openai.audio.speech
       .create({
         model: 'tts-1',
-        voice: 'onyx',
+        voice: 'alloy',
         input: text,
       })
       .then(async (mp3) => {
