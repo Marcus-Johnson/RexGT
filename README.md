@@ -73,6 +73,7 @@ sequenceDiagram
 3. Set up the environment: Create a `.env` file and provide the necessary environment variables, including
    `OPENAI_KEY`, 
    `USERPROFILE`,
+   `POSTMAN_AUTO=NO`,
    `NODE_ENV`.
    `PORT`,
    
