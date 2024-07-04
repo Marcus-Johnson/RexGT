@@ -1,16 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaRegCopy, FaDownload } from "react-icons/fa";
 
-import roles from '../data/roles.attribute.json';
-import prompts from '../data/message.prompts.json';
+import roles from "../data/roles.attribute.json";
+import prompts from "../data/message.prompts.json";
 
-const voices = ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'];
+const voices = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"];
 
 const Chat = () => {
-  const [prompt, setPrompt] = useState('');
-  const [selectedModel, setSelectedModel] = useState('chat');
-  const [selectedRole, setSelectedRole] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [prompt, setPrompt] = useState("");
+  const [selectedModel, setSelectedModel] = useState("chat");
+  const [selectedRole, setSelectedRole] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedVoice, setSelectedVoice] = useState(voices[0]);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -19,15 +22,16 @@ const Chat = () => {
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      chatContainerRef.current.scrollTop =
+        chatContainerRef.current.scrollHeight;
     }
   }, [messages, loading]);
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
 
@@ -36,73 +40,74 @@ const Chat = () => {
       setMessages([]);
     };
 
-    window.addEventListener('clearChatHistory', handleClearChatHistory);
+    window.addEventListener("clearChatHistory", handleClearChatHistory);
 
     return () => {
-      window.removeEventListener('clearChatHistory', handleClearChatHistory);
+      window.removeEventListener("clearChatHistory", handleClearChatHistory);
     };
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let userMessage = { role: 'user', content: prompt };
+    let userMessage = { role: "user", content: prompt };
 
-    if (selectedModel === 'category_chat') {
+    if (selectedModel === "category_chat") {
       userMessage = {
-        role: 'user',
+        role: "user",
         content: `Category chat: ${selectedRole}, ${selectedCategory} sent.`,
       };
-    } else if (selectedModel === 'tts') {
+    } else if (selectedModel === "tts") {
       userMessage = {
-        role: 'user',
+        role: "user",
         content: `TTS: Voice ${selectedVoice}, Text "${prompt}" sent.`,
       };
     }
 
     setMessages([...messages, userMessage]);
     setLoading(true);
-    setPrompt('');
+    setPrompt("");
 
     const endpointMap = {
-      chat: '/api/chat',
-      image: '/api/image',
-      category_chat: '/api/category_chat',
-      tts: '/api/speech',
+      chat: "/api/chat",
+      image: "/api/image",
+      category_chat: "/api/category_chat",
+      tts: "/api/speech",
     };
 
-    const requestBody = selectedModel === 'category_chat'
-      ? { role: selectedRole, category: selectedCategory }
-      : selectedModel === 'tts'
-      ? { text: prompt, voice: selectedVoice }
-      : { prompt };
+    const requestBody =
+      selectedModel === "category_chat"
+        ? { role: selectedRole, category: selectedCategory }
+        : selectedModel === "tts"
+        ? { text: prompt, voice: selectedVoice }
+        : { prompt };
 
     fetch(`http://localhost:3000${endpointMap[selectedModel]}`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(requestBody),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('API Response:', data);
+        console.log("API Response:", data);
         const newResponse = data.file
-          ? `/public${data.file}` 
+          ? `/public${data.file}`
           : data.choices
           ? data.choices[0].message.content
           : data.message
           ? data.message.content
-          : data.url || '';
+          : data.url || "";
         setMessages((prevMessages) => [
           ...prevMessages,
-          { role: 'ai', content: newResponse },
+          { role: "ai", content: newResponse },
         ]);
       })
       .catch((error) => {
-        console.error('Error fetching the API:', error);
+        console.error("Error fetching the API:", error);
         setMessages((prevMessages) => [
           ...prevMessages,
-          { role: 'ai', content: 'Error fetching the API response.' },
+          { role: "ai", content: "Error fetching the API response." },
         ]);
       })
       .finally(() => {
@@ -111,35 +116,87 @@ const Chat = () => {
   };
 
   const isImageUrl = (url) => {
-    return /\.(jpeg|jpg|gif|png)$/.test(url) || url.includes("blob.core.windows.net");
+    return (
+      /\.(jpeg|jpg|gif|png)$/.test(url) || url.includes("blob.core.windows.net")
+    );
   };
 
   const selectMessage = (index) => {
-    chatContainerRef.current.scrollTop = index * 100; 
+    chatContainerRef.current.scrollTop = index * 100;
+  };
+
+  const handleCopyText = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success("Text copied to clipboard");
+    });
+  };
+
+  const containsMarkdown = (text) => {
+    const markdownRegex = /[*_~`#>]/;
+    return markdownRegex.test(text);
+  };
+
+  const handleDownloadImage = (url) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = url.split("/").pop();
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <div className={`flex h-full ${darkMode ? 'dark' : ''}`}>
+    <div className={`flex h-full ${darkMode ? "dark" : ""}`}>
+      <ToastContainer position="bottom-center" />
       <div className="flex flex-col flex-1">
-        <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 chat-container">
+        <div
+          ref={chatContainerRef}
+          className="flex-1 overflow-y-auto p-4 chat-container"
+        >
           {messages.length === 0 && !loading && (
-            <div className="text-gray-500 text-center">Type a message and select a model to start...</div>
+            <div className="text-gray-500 text-center">
+              Type a message and select a model to start...
+            </div>
           )}
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`message ${msg.role === 'user' ? 'user-message' : 'ai-message'} p-4 rounded-lg shadow-md`}
+              className={`message ${
+                msg.role === "user" ? "user-message" : "ai-message"
+              } p-4 rounded-lg shadow-md`}
             >
-              {msg.role === 'ai' ? (
+              {msg.role === "ai" ? (
                 isImageUrl(msg.content) ? (
-                  <img src={msg.content} alt="Generated content" className="generated-image" />
-                ) : msg.content.endsWith('.mp3') ? (
+                  <div className="relative">
+                    <img
+                      src={msg.content}
+                      alt="Generated content"
+                      className="generated-image"
+                    />
+                    <button
+                      onClick={() => handleDownloadImage(msg.content)}
+                      className="download-button absolute top-2 right-2 bg-white p-1 rounded"
+                    >
+                      <FaDownload />
+                    </button>
+                  </div>
+                ) : msg.content.endsWith(".mp3") ? (
                   <audio controls>
                     <source src={msg.content} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
                 ) : (
-                  <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  <div className="markdown-container">
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                    {containsMarkdown(msg.content) && (
+                      <button
+                        onClick={() => handleCopyText(msg.content)}
+                        className="copy-button"
+                      >
+                        <FaRegCopy />
+                      </button>
+                    )}
+                  </div>
                 )
               ) : (
                 msg.content
@@ -147,18 +204,23 @@ const Chat = () => {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col p-4 border-t border-gray-300 relative bg-white shadow-md rounded-t-lg">
-          <div className="flex items-center mb-4">
-            {selectedModel === 'category_chat' ? (
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col p-4 border-t border-gray-300 relative bg-white shadow-md rounded-t-lg"
+        >
+          <div className="flex items-center mb-4 space-x-2">
+            {selectedModel === "category_chat" ? (
               <>
                 <select
                   value={selectedRole}
                   onChange={(e) => setSelectedRole(e.target.value)}
-                  className="border border-gray-300 rounded-l-lg p-2 bg-white flex-1 mr-2"
+                  className="border border-gray-300 rounded-l-lg p-2 bg-white flex-1"
                 >
                   <option value="">Select Role</option>
                   {roles.starter_prompts_including_roles.map((role, index) => (
-                    <option key={index} value={role}>{role}</option>
+                    <option key={index} value={role}>
+                      {role}
+                    </option>
                   ))}
                 </select>
                 <select
@@ -168,19 +230,23 @@ const Chat = () => {
                 >
                   <option value="">Select Category</option>
                   {Object.keys(prompts.prompts).map((category, index) => (
-                    <option key={index} value={category}>{category}</option>
+                    <option key={index} value={category}>
+                      {category}
+                    </option>
                   ))}
                 </select>
               </>
-            ) : selectedModel === 'tts' ? (
+            ) : selectedModel === "tts" ? (
               <>
                 <select
                   value={selectedVoice}
                   onChange={(e) => setSelectedVoice(e.target.value)}
-                  className="border border-gray-300 rounded-l-lg p-2 bg-white flex-1 mr-2"
+                  className="border border-gray-300 rounded-l-lg p-2 bg-white flex-1"
                 >
                   {voices.map((voice, index) => (
-                    <option key={index} value={voice}>{voice}</option>
+                    <option key={index} value={voice}>
+                      {voice}
+                    </option>
                   ))}
                 </select>
                 <input
@@ -203,19 +269,22 @@ const Chat = () => {
             <select
               value={selectedModel}
               onChange={(e) => setSelectedModel(e.target.value)}
-              className="border border-gray-300 rounded-r-lg p-2 bg-white ml-2"
+              className="border border-gray-300 rounded-r-lg p-2 bg-white"
             >
               <option value="chat">Chat</option>
               <option value="image">Image Generator</option>
               <option value="category_chat">Category Chat</option>
               {/* <option value="tts">Text-to-Speech</option> */}
             </select>
-            <button type="submit" className="ml-4 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
+            <button
+              type="submit"
+              className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+            >
               Send
             </button>
           </div>
           {loading && (
-            <div className="loading-indicator absolute bottom-16 left-4">
+            <div className="loading-indicator absolute bottom-20 left-1/2 transform -translate-x-1/2">
               <div className="dot"></div>
               <div className="dot"></div>
               <div className="dot"></div>
