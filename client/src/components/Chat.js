@@ -128,7 +128,7 @@ const Chat = () => {
           {messages.map((msg, index) => (
             <div
               key={index}
-              className={`message ${msg.role === 'user' ? 'user-message' : 'ai-message'} p-4 rounded-lg`}
+              className={`message ${msg.role === 'user' ? 'user-message' : 'ai-message'} p-4 rounded-lg shadow-md`}
             >
               {msg.role === 'ai' ? (
                 isImageUrl(msg.content) ? (
@@ -147,7 +147,7 @@ const Chat = () => {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col p-4 border-t border-gray-300 relative">
+        <form onSubmit={handleSubmit} className="flex flex-col p-4 border-t border-gray-300 relative bg-white shadow-md rounded-t-lg">
           <div className="flex items-center mb-4">
             {selectedModel === 'category_chat' ? (
               <>
@@ -210,7 +210,7 @@ const Chat = () => {
               <option value="category_chat">Category Chat</option>
               {/* <option value="tts">Text-to-Speech</option> */}
             </select>
-            <button type="submit" className="ml-4 p-2 bg-blue-500 text-white rounded-lg">
+            <button type="submit" className="ml-4 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
               Send
             </button>
           </div>

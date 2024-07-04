@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <header className="bg-gray-800 text-white flex justify-between items-center p-4 shadow-md">
+      <header className="bg-gray-800 text-white flex justify-between items-center p-4 shadow-md rounded-b-lg">
         <h3 className="text-1xl font-bold">RexGT v.3</h3>
         <div className="flex items-center">
           {/* <button
@@ -20,7 +20,7 @@ const App = () => {
           </button> */}
           <button
             onClick={handleClearChatHistory}
-            className="p-2 bg-red-500 text-white rounded"
+            className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all"
           >
             Clear Chat History
           </button>

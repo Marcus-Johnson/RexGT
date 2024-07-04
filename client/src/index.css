@@ -42,24 +42,28 @@ header {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  background: #f7f9fc;
+  border-radius: 0.5rem;
 }
 
 .chat-container .message {
   margin-bottom: 1rem;
   max-width: 600px;
   min-width: 150px;
-  word-break: break-word; 
+  word-break: break-word;
 }
 
 .chat-container .user-message {
   align-self: flex-end;
   background-color: #e5e7eb;
+  border-radius: 1rem 1rem 0 1rem;
 }
 
 .chat-container .ai-message {
   align-self: flex-start;
   background-color: #3b82f6;
   color: white;
+  border-radius: 1rem 1rem 1rem 0;
 }
 
 form {
@@ -67,6 +71,9 @@ form {
   padding: 1rem;
   border-top: 1px solid #d1d5db;
   position: relative;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 textarea {
@@ -91,6 +98,7 @@ button {
   color: white;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -104,8 +112,8 @@ button:hover {
 }
 
 .loading-indicator .dot {
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
   margin: 0 4px;
   background: #007bff;
   border-radius: 50%;

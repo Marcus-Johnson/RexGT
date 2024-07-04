@@ -51,28 +51,28 @@ body.dark .App {
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  background: #f7f9fc;
+  border-radius: 0.5rem;
 }
 
 .chat-container .message {
   margin-bottom: 1rem;
   max-width: 600px;
-  min-width: 150px; /* Ensure the message box doesn't stretch unnecessarily */
-  word-break: break-word; /* Ensure long messages wrap correctly */
+  min-width: 150px;
+  word-break: break-word;
 }
 
 .chat-container .user-message {
   align-self: flex-end;
   background-color: #e5e7eb;
-}
-
-body.dark .chat-container .user-message {
-  background-color: #4a5568;
+  border-radius: 1rem 1rem 0 1rem;
 }
 
 .chat-container .ai-message {
   align-self: flex-start;
   background-color: #3b82f6;
   color: white;
+  border-radius: 1rem 1rem 1rem 0;
 }
 
 form {
@@ -80,6 +80,9 @@ form {
   padding: 1rem;
   border-top: 1px solid #d1d5db;
   position: relative;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 body.dark form {
@@ -113,6 +116,7 @@ button {
   color: white;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -155,4 +159,27 @@ button:hover {
   max-width: 100%;
   height: auto;
   border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }
