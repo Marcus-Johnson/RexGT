@@ -1,4 +1,3 @@
-// validation/chatValidation.js
 const Joi = require('joi');
 
 const chatSchema = Joi.object({
